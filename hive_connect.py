@@ -2,6 +2,7 @@ import json
 import urllib.request
 import argparse
 
+parser = argparse.ArgumentParser()
 data = json.load(urllib.request.urlopen("https://www.ocf.berkeley.edu/~hkn/hivemind/data/latest.json"))
 
 
