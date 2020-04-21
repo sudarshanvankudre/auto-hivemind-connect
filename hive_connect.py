@@ -1,10 +1,12 @@
 import json
 import urllib.request
+import os
 import argparse
+
+SUFFIX = ".berkeley.edu"
 
 parser = argparse.ArgumentParser(description="Start ssh session with a UC Berkeley hivemind machine")
 parser.add_argument("username", help="Your username. (Ex: cs000-aaa)")
-parser.add_argument("password", help="Your password corresponding to username")
 args = parser.parse_args()
 data = json.load(urllib.request.urlopen("https://www.ocf.berkeley.edu/~hkn/hivemind/data/latest.json"))
 
@@ -17,8 +19,5 @@ def compare_machine(machine):
 
 machines = filter(lambda s: s.startswith("hive") and "load_avgs" in data["data"][s], data["data"])
 lowest_load_machine = min(machines, key=compare_machine)
-
-
-
-
-
+command = "ssh {}@{}{}".format(args.username, lowest_load_machine, SUFFIX)
+os.system(command)
