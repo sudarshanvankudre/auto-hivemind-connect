@@ -1,2 +1,2 @@
 # auto-hivemind-connect
-Connects automatically to UC Berkeley's Hivemind computers
+Simple script to ssh into UC Berkeley hivemind computer with lowest load and user number.
