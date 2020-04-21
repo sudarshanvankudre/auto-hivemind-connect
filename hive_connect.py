@@ -2,8 +2,8 @@ import json
 import urllib.request
 import argparse
 
-parser = argparse.ArgumentParser(description="Start ssh session with UC Berkeley hivemind machine")
-parser.add_argument("username", help="Your username. Ex: cs000-aaa")
+parser = argparse.ArgumentParser(description="Start ssh session with a UC Berkeley hivemind machine")
+parser.add_argument("username", help="Your username. (Ex: cs000-aaa)")
 parser.add_argument("password", help="Your password corresponding to username")
 args = parser.parse_args()
 data = json.load(urllib.request.urlopen("https://www.ocf.berkeley.edu/~hkn/hivemind/data/latest.json"))
