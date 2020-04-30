@@ -19,5 +19,5 @@ def compare_machine(machine):
 
 machines = filter(lambda s: s.startswith("hive") and "load_avgs" in data["data"][s], data["data"])
 lowest_load_machine = min(machines, key=compare_machine)
-command = "ssh {}@{}{}".format(args.username, lowest_load_machine, SUFFIX)
+command = "ssh -X {}@{}{}".format(args.username, lowest_load_machine, SUFFIX)
 os.system(command)
